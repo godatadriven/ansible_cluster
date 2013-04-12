@@ -1,0 +1,11 @@
+---
+- hosts: cluster
+  user: root
+  sudo: yes
+  gather_facts: no
+  #vars_files:
+  #- vars/bootstrap.yml
+  tasks:
+  - include: bootstrap/tasks/main.yml
+  #handlers:
+  #- include: bootstrap/handlers/main.yml 
