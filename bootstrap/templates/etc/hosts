@@ -1,0 +1,8 @@
+127.0.0.1 localhost
+{{ ansible_eth0.ipv4.address }} cobbler
+{%
+set prefix,cobbler_quad = ansible_eth0.ipv4.address.rsplit('.', 1)
+%}
+{% for host in groups['cluster'] %}
+{{ prefix }}.{{ cobbler_quad|int + host[-2:]|int }} {{ host }}
+{% endfor %}

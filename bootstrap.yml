@@ -2,6 +2,5 @@
 - hosts: all
   user: root
   sudo: yes
-  gather_facts: no
   tasks:
   - include: bootstrap/tasks/main.yml

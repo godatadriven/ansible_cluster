@@ -3,7 +3,9 @@
   authorized_key: user=root key='$FILE(/home/mids/.ssh/id_rsa.pub)'
 
 - name: Poor mans DNS
-  copy: src=bootstrap/files/etc/hosts dest=/etc/hosts owner=root group=root
+  template: src=bootstrap/templates/etc/hosts dest=/etc/hosts owner=root group=root
+  tags:
+  - hosts
 
 - name: Disable IPv6
   sysctl: name=$item value=1 state=present
