@@ -16,11 +16,11 @@ allow bootp;
 ignore client-updates;
 set vendorclass = option vendor-class-identifier;
 
-subnet 10.0.1.0 netmask 255.255.255.0 {
-     option routers             10.0.0.100;
-     option domain-name-servers 10.0.0.100;
-     option subnet-mask         255.255.255.0;
-     range dynamic-bootp        10.0.1.1 10.0.1.254;
+subnet {{ cobbler_temporary_subnet }} netmask {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.netmask}} {
+     option routers             {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.address}};
+     option domain-name-servers {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.address}};
+     option subnet-mask         {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.netmask}};
+     range dynamic-bootp        {{ cobbler_temporary_range }};
      filename                   "/pxelinux.0";
      default-lease-time         21600;
      max-lease-time             43200;

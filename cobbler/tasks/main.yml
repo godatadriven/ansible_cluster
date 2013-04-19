@@ -42,6 +42,19 @@
   tags:
   - xinetd
 
+- name: Cobbler templates
+  template: src=cobbler/templates/etc/cobbler/$item dest=/etc/cobbler/ owner=root group=root
+  with_items:
+  - dhcp.template
+  - modules.conf
+  - settings
+  notify: Restart service cobblerd
+  tags:
+  - templates
+
+- name: Cobbler kickstart script
+  copy: src=cobbler/files/var/lib/cobbler/kickstarts/cluster.ks dest=/var/lib/cobbler/kickstarts/ owner=root group=root
+
 - name: Enable and Start Services
   service: name=$item state=started enabled=yes
   with_items:
