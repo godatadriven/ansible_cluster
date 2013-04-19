@@ -1,0 +1,9 @@
+---
+- hosts: cloudera-manager
+  user: root
+  sudo: yes
+  gather_facts: no
+  vars_files:
+  - vars/common.yml
+  tasks:
+  - include: cloudera-manager/tasks/main.yml

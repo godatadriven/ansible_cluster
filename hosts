@@ -13,3 +13,6 @@ node01
 
 [ganglia-nodes:children]
 cluster
+
+[cloudera-manager]
+node01

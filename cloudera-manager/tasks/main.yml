@@ -1,0 +1,16 @@
+---
+- name: Configure CM4 Repo
+  copy: src=cloudera-manager/files/etc/yum.repos.d/cm4.repo dest=/etc/yum.repos.d/ owner=root group=root
+
+- name: Install CM4
+  yum: name=$item state=installed
+  with_items:
+  - jdk
+  - cloudera-manager-server
+  - cloudera-manager-server-db
+
+- name: Enable and Start Services
+  service: name=$item state=started enabled=yes
+  with_items:
+  - cloudera-scm-server
+  - cloudera-scm-server-db
