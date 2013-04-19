@@ -15,6 +15,11 @@
   tags:
     - packages
 
+- name: configure web access
+  copy: src=monitoring/files/etc/httpd/conf.d/ganglia.conf dest=/etc/httpd/conf.d/ owner=root group=root
+  notify:
+     - restart httpd
+
 - name: configure gmetad
   action: template src=monitoring/templates/etc/ganglia/gmetad.conf dest=/etc/ganglia/gmetad.conf
   notify:

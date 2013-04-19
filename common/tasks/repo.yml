@@ -1,6 +1,7 @@
 ---
 - name: Download EPEL
-  get_url: url=http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm dest=/tmp/
+  get_url: url=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm dest=/tmp/
+  environment: $proxy_env
   tags:
   - epel
 

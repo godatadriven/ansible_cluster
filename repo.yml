@@ -3,5 +3,7 @@
   user: root
   sudo: yes
   gather_facts: no
+  vars_files:
+  - vars/common.yml
   tasks:
   - include: common/tasks/repo.yml

@@ -1,0 +1,3 @@
+proxy_env:
+  http_proxy: http://10.0.0.100:8888/
+  https_proxy: http://10.0.0.100:8888/
