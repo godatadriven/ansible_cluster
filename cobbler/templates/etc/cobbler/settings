@@ -26,7 +26,7 @@ allow_duplicate_macs: 0
 # # # /var/log/cobbler/anamon/.  NOTE: This does allow an xmlrpc call to send logs
 # # # to this directory, without authentication, so enable only if you are
 # # # ok with this limitation.
-anamon_enabled: 0
+anamon_enabled: 1
 
 # If using authn_pam in the modules.conf, this can be configured
 # to change the PAM service authentication will be tested against.
