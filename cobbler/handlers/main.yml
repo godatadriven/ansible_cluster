@@ -1,0 +1,12 @@
+---
+- name: Restart service cobblerd
+  action: service name=cobblerd state=restarted
+
+- name: Restart service dhcpd
+  action: service name=dhcpd state=restarted
+
+- name: Restart service httpd
+  action: service name=httpd state=restarted
+
+- name: Restart service xinetd
+  action: service name=xinetd state=restarted

@@ -1,3 +1,6 @@
 ---
-- name: Restart service $item
+- name: "Restart service ${item}"
   action: service name=$item state=restarted
+
+- name: Reboot
+  action: command /sbin/shutdown -r now

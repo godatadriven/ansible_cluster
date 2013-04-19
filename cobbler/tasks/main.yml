@@ -1,0 +1,52 @@
+---
+- name: Disable IPv6
+  sysctl: name=$item value=1 state=present
+  with_items:
+  - net.ipv6.conf.all.disable_ipv6
+  - net.ipv6.conf.default.disable_ipv6
+  tags:
+  - sysctl
+
+- name: Disable SELinux
+  selinux: state=disabled
+  notify: Reboot
+
+- name: Disable IPTables
+  service: name=iptables state=stopped enabled=no
+
+- name: Download EPEL
+  get_url: url=http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm dest=/tmp/
+  tags:
+  - epel
+
+- name: Install EPEL
+  command: rpm -Uvh /tmp/epel-release-6-8.noarch.rpm creates=/etc/yum.repos.d/epel.repo
+  tags:
+  - epel
+
+- name: Install Cobbler
+  yum: name=$item state=installed
+  with_items:
+    - cobbler
+    - cobbler-web
+    - xinetd
+    - tftp
+    - pykickstart
+    - httpd
+    - dhcp
+    - syslinux
+
+- name: Enable tftp
+  lineinfile: dest=/etc/xinetd.d/tftp regexp=^disable= line=disable=no
+  notify: Restart service xinetd
+  tags:
+  - xinetd
+
+- name: Enable and Start Services
+  service: name=$item state=started enabled=yes
+  with_items:
+  - cobblerd
+  - xinetd
+  - httpd
+  - dhcpd
+
