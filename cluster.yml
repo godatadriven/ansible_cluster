@@ -1,4 +1,4 @@
 - include: bootstrap.yml
 - include: proxy.yml
-- include: cobbler.yml
-
+- include: repo.yml
+- include: monitoring.yml

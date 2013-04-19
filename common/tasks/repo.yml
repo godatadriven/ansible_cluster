@@ -1,0 +1,10 @@
+---
+- name: Download EPEL
+  get_url: url=http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm dest=/tmp/
+  tags:
+  - epel
+
+- name: Install EPEL
+  command: rpm -Uvh /tmp/epel-release-6-8.noarch.rpm creates=/etc/yum.repos.d/epel.repo
+  tags:
+  - epel
