@@ -16,7 +16,7 @@ allow bootp;
 ignore client-updates;
 set vendorclass = option vendor-class-identifier;
 
-subnet {{ cobbler_temporary_subnet }} netmask {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.netmask}} {
+subnet {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.network}} netmask {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.netmask}} {
      option routers             {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.address}};
      option domain-name-servers {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.address}};
      option subnet-mask         {{hostvars[groups['cobbler'][0]].ansible_eth0.ipv4.netmask}};
