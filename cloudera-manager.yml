@@ -4,7 +4,6 @@
   - cluster
   user: root
   sudo: yes
-  gather_facts: no
   vars_files:
   - vars/common.yml
   tasks:
@@ -15,7 +14,6 @@
 - hosts: cloudera-manager
   user: root
   sudo: yes
-  gather_facts: no
   vars_files:
   - vars/common.yml
   tasks:
@@ -26,7 +24,6 @@
 - hosts: cluster
   user: root
   sudo: yes
-  gather_facts: yes
   vars_files:
   - vars/common.yml
   tasks:

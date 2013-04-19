@@ -2,7 +2,6 @@
 - hosts: cobbler
   user: root
   sudo: yes
-  gather_facts: yes
   vars_files:
   - vars/cobbler.yml
   tasks:

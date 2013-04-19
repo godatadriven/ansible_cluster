@@ -3,10 +3,10 @@ node01
 node02
 
 [cobbler]
-localhost
+cobbler
 
 [proxy]
-localhost
+cobbler
 
 [ganglia-master]
 node01

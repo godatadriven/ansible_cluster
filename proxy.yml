@@ -2,7 +2,6 @@
 - hosts: proxy
   user: root
   sudo: yes
-  gather_facts: yes
   tasks:
   - include: proxy/tasks/tinyproxy.yml
   handlers:
@@ -13,7 +12,6 @@
 - hosts: cluster
   user: root
   sudo: yes
-  gather_facts: yes
   vars_files:
   - vars/common.yml
   tasks:
