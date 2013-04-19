@@ -1,7 +1,4 @@
 ---
-- name: Copy yum config
-  copy: src=bootstrap/files/etc/yum.conf dest=/etc/yum.conf
-
 - name: Install SSH key
   authorized_key: user=root key='$FILE(/home/mids/.ssh/id_rsa.pub)'
 

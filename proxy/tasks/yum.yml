@@ -1,0 +1,3 @@
+---
+- name: Copy yum config
+  copy: src=proxy/files/etc/yum.conf dest=/etc/yum.conf

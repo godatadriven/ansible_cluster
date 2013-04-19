@@ -1,0 +1,16 @@
+---
+- hosts: proxy
+  user: root
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - include: proxy/tasks/tinyproxy.yml
+  handlers:
+  - include: common/handlers/main.yml 
+
+- hosts: cluster
+  user: root
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - include: proxy/tasks/yum.yml
