@@ -7,3 +7,9 @@ localhost
 
 [proxy]
 localhost
+
+[ganglia-master]
+node01
+
+[ganglia-nodes:children]
+cluster

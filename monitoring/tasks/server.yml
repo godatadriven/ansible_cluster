@@ -1,0 +1,27 @@
+# this file defines behavior for the 'ganglia_master' class of nodes
+
+- name: install $item
+  action: yum pkg=$item state=installed
+  with_items:
+    - ganglia
+    - ganglia-gmetad
+  tags:
+    - packages
+
+- name: install ganglia-web
+  action: yum pkg=ganglia-web state=installed
+  notify:
+     - restart httpd
+  tags:
+    - packages
+
+- name: configure gmetad
+  action: template src=monitoring/templates/etc/ganglia/gmetad.conf dest=/etc/ganglia/gmetad.conf
+  notify:
+      - restart gmetad
+
+- action: service name=$item state=running
+  with_items:
+      - gmond
+      - httpd
+      - gmetad
