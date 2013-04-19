@@ -1,4 +1,17 @@
 ---
+- hosts:
+  - cloudera-manager
+  - cluster
+  user: root
+  sudo: yes
+  gather_facts: no
+  vars_files:
+  - vars/common.yml
+  tasks:
+  - include: cloudera-manager/tasks/common.yml
+  handlers:
+  - include: cloudera-manager/handlers/main.yml
+
 - hosts: cloudera-manager
   user: root
   sudo: yes
@@ -6,4 +19,17 @@
   vars_files:
   - vars/common.yml
   tasks:
-  - include: cloudera-manager/tasks/main.yml
+  - include: cloudera-manager/tasks/server.yml
+  handlers:
+  - include: cloudera-manager/handlers/main.yml
+
+- hosts: cluster
+  user: root
+  sudo: yes
+  gather_facts: yes
+  vars_files:
+  - vars/common.yml
+  tasks:
+  - include: cloudera-manager/tasks/agents.yml
+  handlers:
+  - include: cloudera-manager/handlers/main.yml

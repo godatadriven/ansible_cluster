@@ -1,0 +1,16 @@
+---
+- name: Install CM4 Agent
+  yum: name=$item state=installed
+  with_items:
+  - cloudera-manager-agent
+
+- name: Agent configuration
+  template: src=cloudera-manager/templates/etc/cloudera-scm-agent/config.ini dest=/etc/cloudera-scm-agent owner=root group=root
+  tags:
+  - config
+  notify: Restart Cloudera Manager Agent
+
+- name: Enable and Start Services
+  service: name=$item state=started enabled=yes
+  with_items:
+  - cloudera-scm-agent
