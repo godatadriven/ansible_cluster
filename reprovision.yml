@@ -1,0 +1,12 @@
+---
+- hosts: cluster
+  user: root
+  sudo: yes
+  gather_facts: yes
+  vars_files:
+  - vars/cobbler.yml
+  tasks:
+  - include: cobbler/tasks/reprovision.yml
+  handlers:
+  - include: common/handlers/main.yml
+  - include: cobbler/handlers/main.yml

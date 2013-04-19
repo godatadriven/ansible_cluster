@@ -1,9 +1,9 @@
 [cluster]
-10.0.0.101
-10.0.0.102
+node01
+node02
 
 [cobbler]
-10.0.0.100
+localhost
 
 [proxy]
-10.0.0.100
+localhost

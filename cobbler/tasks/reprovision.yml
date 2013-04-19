@@ -1,0 +1,7 @@
+---
+- name: Enable Netboot
+  command: /usr/bin/cobbler system edit --name=${inventory_hostname} --netboot-enabled=True
+  delegate_to: cobbler
+  notify:
+  - Sync cobbler
+  - Reboot
