@@ -1,1 +1,1 @@
-cobbler_temporary_range: 10.0.0.101 10.0.0.254
+cobbler_temporary_range: 172.17.11.111 172.17.11.114

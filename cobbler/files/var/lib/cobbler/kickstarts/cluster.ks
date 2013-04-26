@@ -42,8 +42,9 @@ zerombr
 # Partition clearing information
 clearpart --all --initlabel 
 # Disk partitioning information
-part / --fstype="ext4" --size=20480
-part /data --fstype="ext4" --grow --size=1
+part / --fstype="ext4" --grow --ondisk=/dev/cciss/c0d0 --size=1
+part swap --fstype="swap" --ondisk=/dev/cciss/c0d0 --size=512
+part /data --fstype="ext4" --grow --ondisk=/dev/cciss/c0d1 --size=1
 
 %pre
 $SNIPPET('log_ks_pre')

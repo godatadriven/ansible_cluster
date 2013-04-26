@@ -1,6 +1,8 @@
 [cluster]
-node01
-node02
+node111
+node112
+node113
+node114
 
 [cobbler]
 cobbler
@@ -9,10 +11,10 @@ cobbler
 cobbler
 
 [ganglia-master]
-node01
+node111
 
 [ganglia-nodes:children]
 cluster
 
 [cloudera-manager]
-node01
+node111

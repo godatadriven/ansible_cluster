@@ -1,0 +1,15 @@
+---
+- name: Fix the gateway
+  lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-eth0 regexp="^GATEWAY=" insertafter="^NETMASK=" line="GATEWAY=172.17.11.1"
+  notify:
+  - restart network
+  tags:
+  - fixit
+
+- name: Fix the DNS
+  lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-eth0 regexp="^DNS1=" insertafter="^NETMASK=" line="DNS1=172.17.11.75"
+  notify:
+  - restart network
+  tags:
+  - fixit
+

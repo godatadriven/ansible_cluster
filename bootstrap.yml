@@ -4,3 +4,11 @@
   sudo: yes
   tasks:
   - include: bootstrap/tasks/main.yml
+
+- hosts: cluster
+  user: root
+  sudo: yes
+  tasks:
+  - include: bootstrap/tasks/fix-gateway.yml
+  handlers:
+  - include: bootstrap/handlers/main.yml
