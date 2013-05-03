@@ -1,6 +1,6 @@
 ---
 - name: Install SSH key
-  authorized_key: user=root key='$FILE(/home/mids/.ssh/id_rsa.pub)'
+  authorized_key: user=root key='$FILE(bootstrap/keys/id_rsa.pub)'
 
 - name: Poor mans DNS
   template: src=bootstrap/templates/etc/hosts dest=/etc/hosts owner=root group=root
