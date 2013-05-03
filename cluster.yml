@@ -1,3 +1,4 @@
 - include: bootstrap.yml
 - include: repo.yml
 - include: monitoring.yml
+- include: cloudera-manager.yml
