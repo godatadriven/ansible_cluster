@@ -1,4 +1,3 @@
 - include: bootstrap.yml
-- include: proxy.yml
 - include: repo.yml
 - include: monitoring.yml
