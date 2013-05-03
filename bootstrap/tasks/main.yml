@@ -15,6 +15,9 @@
   tags:
   - sysctl
 
+- name: Configure yum proxy
+  template: src=bootstrap/templates/etc/yum.conf dest=/etc/yum.conf owner=root group=root
+
 - name: Install basic packages
   yum: name=$item state=installed
   with_items:

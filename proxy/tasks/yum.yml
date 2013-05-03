@@ -1,3 +1,0 @@
----
-- name: Copy yum config
-  template: src=proxy/templates/etc/yum.conf dest=/etc/yum.conf owner=root group=root
