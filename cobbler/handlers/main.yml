@@ -1,6 +1,6 @@
 ---
 - name: Sync cobbler
-  local_action: command /usr/bin/cobbler sync
+  local_action: shell /usr/bin/cobbler sync
 
 - name: Restart service cobblerd
   service: name=cobblerd state=restarted

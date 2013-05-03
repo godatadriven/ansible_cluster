@@ -39,7 +39,14 @@
   - cobblerd
   - xinetd
   - httpd
-  - dhcpd
+  tags:
+  - services
+
+- name: Enable dhcpd Services
+  service: name=dhcpd enabled=yes
+  notify:
+  - Sync cobbler
+  - Restart service cobblerd
   tags:
   - services
 
