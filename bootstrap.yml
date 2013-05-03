@@ -4,3 +4,5 @@
   sudo: yes
   tasks:
   - include: bootstrap/tasks/main.yml
+  handlers:
+  - include: common/handlers/main.yml
