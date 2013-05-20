@@ -1,0 +1,10 @@
+---
+- hosts:
+  - cluster
+  user: root
+  sudo: yes
+  vars_files:
+  - vars/common.yml
+  tasks:
+  - include: local-repo/tasks/common.yml
+

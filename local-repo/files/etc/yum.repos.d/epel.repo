@@ -1,0 +1,5 @@
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=http://10.20.0.100/mirror.1000mbps.org/fedora-epel/6/x86_64/
+enabled=1
+gpgcheck=0

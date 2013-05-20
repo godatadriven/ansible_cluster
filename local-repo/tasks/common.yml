@@ -1,0 +1,7 @@
+---
+- name: Configure local centos Base Repo
+  copy: src=local-repo/files/etc/yum.repos.d/CentOS-Base.repo dest=/etc/yum.repos.d/ owner=root group=root
+
+- name: Configure local epel Repo
+  copy: src=local-repo/files/etc/yum.repos.d/epel.repo dest=/etc/yum.repos.d/ owner=root group=root
+

@@ -1,0 +1,17 @@
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://10.20.0.100/mirror.centos.org/centos/$releasever/os/$basearch/
+gpgcheck=0
+
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates
+baseurl=http://10.20.0.100/mirror.centos.org/centos/$releasever/updates/$basearch/
+gpgcheck=0
+
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+baseurl=http://10.20.0.100/mirror.centos.org/centos/$releasever/extras/$basearch/
+gpgcheck=0
+
