@@ -1,11 +1,14 @@
 ---
 - name: Install SSH key
   authorized_key: user=root key='$FILE(bootstrap/keys/id_rsa.pub)'
+  tags:
+  - init
 
 - name: Poor mans DNS
   template: src=bootstrap/templates/etc/hosts dest=/etc/hosts owner=root group=root
   tags:
   - hosts
+  - init
 
 - name: Disable IPv6
   sysctl: name=$item value=1 state=present
