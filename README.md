@@ -31,7 +31,7 @@ sudo cobbler system edit --name=node02 --netboot-enabled=True
 If you want to have a local version of the yum repo's used:
 ```
 
-(Download steps can be done on host OS or VM machine. Take sa lot of space so host OS seems the best option)
+(Download steps can be done on host OS or VM machine. Takes a lot of space so host OS seems the best option)
 cd <localrepodir>
 wget -r --no-parent --reject "index.html*" http://mirror.centos.org/centos/6/os/x86_64/Packages/
 wget -r --no-parent --reject "index.html*" http://mirror.centos.org/centos/6/updates/x86_64/Packages/
